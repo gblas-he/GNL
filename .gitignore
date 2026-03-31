@@ -1,0 +1,10 @@
+# Object files
+*.o
+*.a
+
+# Executables (tu binario)
+get_next_line
+a.out
+
+# Optional: debug files
+*.dSYM/
