@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/26 16:18:10 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/03/31 19:18:42 by gblas-he         ###   ########.fr       */
+/*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
+/*   Updated: 2026/03/31 19:18:46 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
 
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char *tmp;
+	size_t i;
 
-
-#include <fcntl.h>
-#include <unistd.h>
-# include <stdlib.h>
-# include <stdint.h>
-
-char	*get_next_line(int fd);
-void	*ft_calloc(size_t nmemb, size_t size);
-
-#endif
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
+	tmp = malloc(size * nmemb);
+	if (!tmp)
+		return (NULL);
+	i = 0;
+	while (i < size * nmemb)
+		tmp[i++] = '\0';
+	return (tmp);
+}
