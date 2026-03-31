@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/03/31 21:09:15 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/03/31 21:17:38 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int	main(void)
 	__attribute__((unused)) char *str;
 	__attribute__((unused)) char *first = NULL;
 	__attribute__((unused)) int count = 0;
+	if (fd == -1)
+	{
+		printf("error");
+		return (-1);
+	}
 	while ((str = get_next_line(fd)) != NULL)
 	{
 		if (first == NULL)
