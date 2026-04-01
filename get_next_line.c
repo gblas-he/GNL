@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/03/31 21:17:38 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/01 21:00:26 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 char	*get_next_line(int fd)
 {
 	char	*buffer;
-	int		bytes_read;
+	int		gnl;
 
-	buffer = ft_calloc(3 + 1, sizeof(char));
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
 		return (NULL);
-	bytes_read = read(fd, buffer, 3);
-	if (bytes_read <= 0)
+	gnl = read(fd, buffer, BUFFER_SIZE);
+	if (gnl <= 0)
 	{
 		free(buffer);
 		return (NULL);
@@ -33,7 +35,7 @@ char	*get_next_line(int fd)
 
 int	main(void)
 {
-	__attribute__((unused)) int fd = open("ex.txt", O_RDONLY);
+	__attribute__((unused)) int fd = open("el_quijote.txt", O_RDONLY);
 	__attribute__((unused)) char *str;
 	__attribute__((unused)) char *first = NULL;
 	__attribute__((unused)) int count = 0;
@@ -42,7 +44,7 @@ int	main(void)
 		printf("error");
 		return (-1);
 	}
-	while ((str = get_next_line(fd)) != NULL)
+	while ((str = get_next_line(42)) != NULL)
 	{
 		if (first == NULL)
 			first = strdup(str);

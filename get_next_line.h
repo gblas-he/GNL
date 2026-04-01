@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 16:18:10 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/03/31 21:09:55 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/01 19:48:51 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 #include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
 
 char	*get_next_line(int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
