@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/03 20:06:18 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/03 21:58:29 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,22 @@ char	*ft_getline(char *stash)
 	char	*line;
 	int		i;
 
-	line = ft_calloc(ft_strlen(stash) + 1, sizeof(char));
-	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	while (*stash && !ft_strchr(stash, '\n'))
 	{
-		line[i] = stash[i];
-		i++;
+		line = ft_calloc(ft_strlen(stash), sizeof(char));
+		line = ft_strdup(stash);
 	}
-	printf("prueba: line %s, stash: %s", line, stash);
+	i = 0;
+	while (*stash && *stash != '\n')
+		i++;
+	line = ft_calloc(ft_strlen(stash) + 1, sizeof(char));
+	line = ft_strdup(stash);
+	// while (stash[i] && stash[i] != '\n')
+	// {
+	// 	line[i] = stash[i];
+	// 	i++;
+	// }
+	printf("prueba line--> %s, prueba stash--> %s\n", line, stash);
 	return (line);
 }
 
@@ -56,6 +64,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	stash = read_function(fd);
 	gnl = ft_getline(stash);
+	printf("prueba gnl--> %s\n", gnl);
 	return (gnl);
 }
 
@@ -72,14 +81,14 @@ int	main(void)
 	}
 	while ((str = get_next_line(fd)) != NULL)
 	{
-		if (first == NULL)
-			first = strdup(str);
+		/* 		if (first == NULL)
+					first = strdup(str); */
 		count++;
 		printf("[%d] %s\n", count, str);
 		free(str);
 	}
-	printf("\n1º buffer: %s", first);
-	free(first);
+	// printf("\n1º buffer: %s", first);
+	// free(first);
 	close(fd);
 	return (0);
 }

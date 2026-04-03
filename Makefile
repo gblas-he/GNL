@@ -6,7 +6,7 @@
 #    By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/18 14:39:24 by jdiaz-ec          #+#    #+#              #
-#    Updated: 2026/04/03 19:29:13 by gblas-he         ###   ########.fr        #
+#    Updated: 2026/04/03 20:43:52 by gblas-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INCLUDE = get_next_line.h
 
 CC = cc
 
-CCFLAGS = -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=10
+CCFLAGS = -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5
 
 RM = rm -f
 

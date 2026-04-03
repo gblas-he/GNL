@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 16:18:10 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/03 19:53:56 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/03 21:45:11 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 
 char	*get_next_line(int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
-int		ft_strlen(char *s);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
 
 #endif

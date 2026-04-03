@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/03 19:57:14 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/03 21:45:00 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,24 @@ size_t	ft_strlen(const char *s)
 		s++;
 	}
 	return (count);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int				i;
+	unsigned char	cc;
+
+	cc = (unsigned char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == cc)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (s[i] == cc)
+		return ((char *)&s[i]);
+	return (NULL);
 }
 
 char	*ft_strdup(const char *s)
