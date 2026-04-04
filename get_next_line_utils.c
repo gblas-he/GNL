@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/04 15:08:57 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/04 18:21:47 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,42 +28,46 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (tmp);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
-	int				i;
-	unsigned char	cc;
+	int	i;
 
-	cc = (unsigned char)c;
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == cc)
+		if (s[i] == c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (s[i] == cc)
+	if (s[i] == c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int i;
-	int len;
-	char *s2;
+	char *str;
+	size_t len1;
+	size_t len2;
+	size_t i;
 
-	while (s2[len])
-		len++;
-
-	i = 0;
-	s2 = ft_calloc((len + 1), (sizeof(char)));
-	if (!s2)
+	len1 = 0;
+	while (s1 && s1[len1])
+		len1++;
+	len2 = 0;
+	while (s2 && s2[len2])
+		len2++;
+	str = ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (!str)
 		return (NULL);
-	while (s[i])
+	i = 0;
+	while (i < len1)
 	{
-		s2[i] = s[i];
+		str[i] = s1[i];
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	i = 0;
+	while (i < len2)
+		str[len1++] = s2[i++];
+	return (str);
 }
