@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/04 18:37:49 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/04 20:29:58 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ char	*ft_getline(char *stash)
 	len = 0;
 	while (stash[len] && stash[len] != '\n')
 		len++;
-	if (stash[len] != '\n')
-		len++;
 	line = ft_calloc(stash[len] + 1, sizeof(char));
 	if (!line)
 		return (NULL);
@@ -58,23 +56,40 @@ char	*ft_getline(char *stash)
 		line[i] = stash[i];
 		i++;
 	}
-	// while (*stash && !ft_strchr(stash, '\n'))
-	// {
-	// 	line = ft_calloc(ft_strlen(stash), sizeof(char));
-	// 	line = ft_strdup(stash);
-	// }
-	// i = 0;
-	// while (*stash && *stash != '\n')
-	// 	i++;
-	// line = ft_calloc(ft_strlen(stash) + 1, sizeof(char));
-	// line = ft_strdup(stash);
-	// while (stash[i] && stash[i] != '\n')
-	// {
-	// 	line[i] = stash[i];
-	// 	i++;
-	// }
+	// line = ft_strjoin(line, stash);
 	printf("prueba line--> %s, prueba stash--> %s\n", line, stash);
 	return (line);
+}
+
+char	*ft_getrest(char *stash)
+{
+	char	*tmp;
+	int		len;
+	int		i;
+
+	i = -1;
+	len = 0;
+	while (stash[len])
+	{
+		if (stash[len] == '\n' && i == -1)
+			i = len;
+		len++;
+	}
+	// len = 0;
+	// while (stash[len])
+	// {
+	// 	if (ft_strchr(stash, '\n'))
+	// 		i++ = len;
+	// 	len++;
+	// }
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[len] != '\n')
+		i++;
+	while (stash[i + len])
+		len++;
+	tmp = ft_calloc(len - i, sizeof(char));
 }
 
 char	*get_next_line(int fd)
@@ -88,6 +103,7 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = ft_getline(stash);
+	stash = getrest(stash);
 	// printf("prueba gnl--> %s\n", gnl);
 	return (line);
 }
