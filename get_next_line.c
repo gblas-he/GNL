@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/04 20:29:58 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/04 21:06:31 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,13 @@ char	*ft_getrest(char *stash)
 		len++;
 	}
 	// len = 0;
-	// while (stash[len])
-	// {
-	// 	if (ft_strchr(stash, '\n'))
-	// 		i++ = len;
+	// i = 0;
+	// while (stash[i] && stash[i] != '\n')
+	// 	i++;
+	// if (stash[len] != '\n')
+	// 	i++;
+	// while (stash[i + len])
 	// 	len++;
-	// }
-	i = 0;
-	while (stash[i] && stash[i] != '\n')
-		i++;
-	if (stash[len] != '\n')
-		i++;
-	while (stash[i + len])
-		len++;
 	tmp = ft_calloc(len - i, sizeof(char));
 }
 
