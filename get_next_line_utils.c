@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/03 21:45:00 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/04 15:08:57 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	while (i < size * nmemb)
 		tmp[i++] = '\0';
 	return (tmp);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s)
-	{
-		count++;
-		s++;
-	}
-	return (count);
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -62,10 +49,14 @@ char	*ft_strchr(const char *s, int c)
 char	*ft_strdup(const char *s)
 {
 	int i;
+	int len;
 	char *s2;
 
+	while (s2[len])
+		len++;
+
 	i = 0;
-	s2 = ft_calloc((ft_strlen(s) + 1), (sizeof(char)));
+	s2 = ft_calloc((len + 1), (sizeof(char)));
 	if (!s2)
 		return (NULL);
 	while (s[i])
