@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/04 21:06:31 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:06:05 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,16 @@ char	*ft_getline(char *stash)
 		i++;
 	}
 	// line = ft_strjoin(line, stash);
-	printf("prueba line--> %s, prueba stash--> %s\n", line, stash);
+	// printf("prueba getline: line--> %s, prueba stash--> %s\n", line, stash);
 	return (line);
 }
 
 char	*ft_getrest(char *stash)
 {
-	char	*tmp;
+	char	*rest;
 	int		len;
 	int		i;
+	int		j;
 
 	i = -1;
 	len = 0;
@@ -75,7 +76,16 @@ char	*ft_getrest(char *stash)
 			i = len;
 		len++;
 	}
-	// len = 0;
+	while (stash[i] == '\n')
+		i++;
+	rest = ft_calloc(len - i + 1, sizeof(char));
+	if (!rest)
+		return (NULL);
+	j = 0;
+	while (stash[i])
+		rest[j++] = stash[i++];
+	free(stash);
+	// rest = ft_strjoin(rest, stash);
 	// i = 0;
 	// while (stash[i] && stash[i] != '\n')
 	// 	i++;
@@ -83,7 +93,7 @@ char	*ft_getrest(char *stash)
 	// 	i++;
 	// while (stash[i + len])
 	// 	len++;
-	tmp = ft_calloc(len - i, sizeof(char));
+	return (rest);
 }
 
 char	*get_next_line(int fd)
@@ -97,8 +107,8 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = ft_getline(stash);
-	stash = getrest(stash);
-	// printf("prueba gnl--> %s\n", gnl);
+	stash = ft_getrest(stash);
+	printf("prueba gnl--> %s, stash-->%s\n", line, stash);
 	return (line);
 }
 
