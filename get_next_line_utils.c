@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/04 18:21:47 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/07 21:18:27 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ char	*ft_strchr(char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char *str;
-	size_t len1;
-	size_t len2;
-	size_t i;
+	size_t	len1;
+	size_t	len2;
+	size_t	i;
+	char	*str;
 
 	len1 = 0;
 	while (s1 && s1[len1])

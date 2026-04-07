@@ -1,7 +1,2 @@
-Holaqtal
-Hola
-
-HOLHOLa 
-
-Welcome to the file!
-This is the first line.
+file!
+This.

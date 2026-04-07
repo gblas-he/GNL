@@ -6,13 +6,15 @@
 #    By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/18 14:39:24 by jdiaz-ec          #+#    #+#              #
-#    Updated: 2026/04/04 19:48:35 by gblas-he         ###   ########.fr        #
+#    Updated: 2026/04/07 21:31:04 by gblas-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# NAME = get_next_line.a
 NAME = get_next_line
 
-SRC = get_next_line.c get_next_line_utils.c
+# SRC = get_next_line.c get_next_line_utils.c
+SRC = get_next_line.c get_next_line_utils.c main.c
 
 OBJS := $(SRC:%.c=%.o)
 INCLUDE = get_next_line.h
@@ -21,16 +23,19 @@ CC = cc
 
 CCFLAGS = -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5
 
+AR = ar rcs
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
+# 	$(AR) $(NAME) $(OBJS)
 	$(CC) $(CCFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.c $(INCLUDE)
+# 	$(CC) $(CCFLAGS) -c $< -o $@
 	$(CC) $(CCFLAGS) -o $@ -c $<
-
+	
 .PHONY: clean all fclean re
 
 clean:
