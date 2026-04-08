@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/08 15:58:00 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/08 17:14:25 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = ft_getline(stash);
+	if (!line)
+		return (free(stash), NULL);
 	stash = ft_getrest(stash);
 	return (line);
 }

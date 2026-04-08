@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 20:43:15 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/08 15:56:32 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/08 17:13:51 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(void)
 	//__attribute__((unused)) char *first = NULL;
 	int count;
 	int fd;
-	
+
 	count = 0;
-	fd = open("ex.txt", O_RDONLY);
+	fd = open("el_quijote.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("error");
@@ -31,7 +31,7 @@ int	main(void)
 	while ((str = get_next_line(fd)) != NULL)
 	{
 		// 		if (first == NULL)
-		//			first = strdup(str); 
+		//			first = strdup(str);
 		count++;
 		printf("main: [%d] %s\n", count, str);
 		free(str);
