@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 20:43:15 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/08 17:13:51 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/08 19:25:17 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int	main(void)
 {
 	char *str;
-	//__attribute__((unused)) char *first = NULL;
 	int count;
 	int fd;
 
@@ -30,14 +29,10 @@ int	main(void)
 	}
 	while ((str = get_next_line(fd)) != NULL)
 	{
-		// 		if (first == NULL)
-		//			first = strdup(str);
 		count++;
 		printf("main: [%d] %s\n", count, str);
 		free(str);
 	}
-	// printf("\n1º buffer: %s", first);
-	// free(first);
 	close(fd);
 	return (0);
 }
