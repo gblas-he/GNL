@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/07 21:18:27 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/08 14:38:04 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,21 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	count;
+
+	if (!s)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	len1;
@@ -51,12 +66,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	i;
 	char	*str;
 
-	len1 = 0;
-	while (s1 && s1[len1])
-		len1++;
-	len2 = 0;
-	while (s2 && s2[len2])
-		len2++;
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
 	str = ft_calloc(len1 + len2 + 1, sizeof(char));
 	if (!str)
 		return (NULL);

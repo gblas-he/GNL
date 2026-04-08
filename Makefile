@@ -6,42 +6,44 @@
 #    By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/18 14:39:24 by jdiaz-ec          #+#    #+#              #
-#    Updated: 2026/04/07 21:31:04 by gblas-he         ###   ########.fr        #
+#    Updated: 2026/04/08 11:48:32 by gblas-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAME = get_next_line.a
-NAME = get_next_line
+NAME_LIB = get_next_line.a
+NAME_EXEC = get_next_line
 
-# SRC = get_next_line.c get_next_line_utils.c
-SRC = get_next_line.c get_next_line_utils.c main.c
+SRC_LIB = get_next_line.c get_next_line_utils.c
+SRC_EXEC = get_next_line.c get_next_line_utils.c main.c
 
-OBJS := $(SRC:%.c=%.o)
+OBJS_LIB := $(SRC_LIB:%.c=%.o)
+OBJS_EXEC := $(SRC_EXEC:%.c=%.o)
+
 INCLUDE = get_next_line.h
 
 CC = cc
-
 CCFLAGS = -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5
 
 AR = ar rcs
 RM = rm -f
 
-all: $(NAME)
+all: $(NAME_LIB) $(NAME_EXEC)
 
-$(NAME) : $(OBJS)
-# 	$(AR) $(NAME) $(OBJS)
-	$(CC) $(CCFLAGS) -o $(NAME) $(OBJS)
+$(NAME_LIB): $(OBJS_LIB)
+	$(AR) $(NAME_LIB) $(OBJS_LIB)
+
+$(NAME_EXEC): $(OBJS_EXEC)
+	$(CC) $(CCFLAGS) -o $(NAME_EXEC) $(OBJS_EXEC)
 
 %.o: %.c $(INCLUDE)
-# 	$(CC) $(CCFLAGS) -c $< -o $@
-	$(CC) $(CCFLAGS) -o $@ -c $<
-	
-.PHONY: clean all fclean re
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS_LIB) $(OBJS_EXEC)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME_LIB) $(NAME_EXEC)
 
 re: fclean all
+
+.PHONY: all clean fclean re

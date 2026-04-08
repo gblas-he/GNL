@@ -6,7 +6,7 @@
 /*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 16:18:10 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/07 21:17:15 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/08 15:34:03 by gblas-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 # include <stdint.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strchr(char *s, int c);
+size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 
 #endif
