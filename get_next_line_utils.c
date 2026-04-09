@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 16:53:40 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/08 14:38:04 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/09 12:57:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,22 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (tmp);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int				i;
+	unsigned char	cc;
 
+	if (!s)
+		return (NULL);
+	cc = (unsigned char)c;
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == cc)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (s[i] == c)
+	if (s[i] == cc)
 		return ((char *)&s[i]);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 20:43:15 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/09 11:47:13 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/09 12:59:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int	main(void)
 {
-	char *str;
-	int count;
-	int fd;
+	char	*str;
+	int		count;
+	int		fd;
 
 	count = 0;
 	fd = open("ex.txt", O_RDONLY);
@@ -27,6 +27,7 @@ int	main(void)
 		printf("error");
 		return (1);
 	}
+	
 	while ((str = get_next_line(fd)) != NULL)
 	{
 		count++;

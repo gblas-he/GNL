@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/09 12:10:08 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/09 12:55:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*ft_getrest(char *stash)
 	i++;
 	rest = ft_calloc(ft_strlen(stash + i) + 1, sizeof(char));
 	if (!rest)
-		return (NULL);
+		return (free(stash), NULL);
 	j = 0;
 	while (stash[i])
 		rest[j++] = stash[i++];
