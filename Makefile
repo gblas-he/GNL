@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/18 14:39:24 by jdiaz-ec          #+#    #+#              #
-#    Updated: 2026/04/08 17:01:13 by gblas-he         ###   ########.fr        #
+#    Updated: 2026/04/09 12:09:42 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS_EXEC := $(SRC_EXEC:%.c=%.o)
 INCLUDE = get_next_line.h
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5
+CCFLAGS = -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=42
 
 AR = ar rcs
 RM = rm -f

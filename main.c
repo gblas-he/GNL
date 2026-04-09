@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 20:43:15 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/08 19:25:17 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/09 11:47:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	int fd;
 
 	count = 0;
-	fd = open("el_quijote.txt", O_RDONLY);
+	fd = open("ex.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("error");

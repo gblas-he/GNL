@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gblas-he <gblas-he@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 15:53:16 by gblas-he          #+#    #+#             */
-/*   Updated: 2026/04/08 19:52:00 by gblas-he         ###   ########.fr       */
+/*   Updated: 2026/04/09 12:10:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,12 @@ char	*read_function(int fd, char *stash)
 	while (!stash || !ft_strchr(stash, '\n'))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
-		if (bytes < 0)
-			return (free(buffer), free(stash), NULL);
-		if (bytes == 0)
+		if (bytes <= 0)
 		{
 			free(buffer);
-			if (stash && *stash)
-				return (stash);
-			return (free(stash), NULL);
+			if (bytes < 0 || !stash || !*stash)
+				return (free(stash), NULL);
+			return (stash);
 		}
 		buffer[bytes] = '\0';
 		tmp = ft_strjoin(stash, buffer);
@@ -76,8 +74,6 @@ char	*ft_getrest(char *stash)
 	if (!stash[i])
 		return (free(stash), NULL);
 	i++;
-	if (!stash[i])
-		return (free(stash), NULL);
 	rest = ft_calloc(ft_strlen(stash + i) + 1, sizeof(char));
 	if (!rest)
 		return (NULL);
